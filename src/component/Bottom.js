@@ -86,7 +86,7 @@ const Bottom = ({
   return (
     <div className="bottom">
       <div className="container">
-        <form>
+        <form onSubmit={handleSave}>
           <div className="row">
             <div className="description">
               <p className="title col-sm-12">Task Description</p>
@@ -200,7 +200,7 @@ const Bottom = ({
                 <button
                   type="submit"
                   className={`btn btn-success`}
-                  onClick={handleSave}
+                  //onClick={handleSave}
                 >
                   Save
                 </button>
