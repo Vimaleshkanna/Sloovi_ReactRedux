@@ -11,6 +11,7 @@ import {
 } from "../actions/task";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBarsProgress } from "@fortawesome/free-solid-svg-icons";
+import setAuthToken from "../utils/setAuthToken";
 
 const Bottom = ({
   addTask,
@@ -31,17 +32,12 @@ const Bottom = ({
   });
   const [isEmpty, setIsEmpty] = useState(true);
   const [id, setId] = useState();
-  // if (isUpdate) {
-  //   clearField();
-  // }
+
   useEffect(() => {
     setId(task.id);
     if (!isUpdate) {
       clearTask(taskNumber);
     }
-    // else {
-    //   clearField();
-    // }
     setTaskDetails({
       ...taskDetails,
       task_msg: task.task_msg,
@@ -86,6 +82,7 @@ const Bottom = ({
   return (
     <div className="bottom">
       <div className="container">
+        {localStorage.token ? setAuthToken(localStorage.token) : null}
         <form onSubmit={handleSave}>
           <div className="row">
             <div className="description">
@@ -98,10 +95,6 @@ const Bottom = ({
                 onChange={(e) => onChange(e)}
                 required
               />
-              {/* {" "}
-              <span>
-                <FontAwesomeIcon icon={faBarsProgress} />{" "}
-              </span> */}
             </div>
           </div>
           <div className="row">
@@ -197,11 +190,7 @@ const Bottom = ({
                 </button>
               )}
               {isUpdate ? null : (
-                <button
-                  type="submit"
-                  className={`btn btn-success`}
-                  //onClick={handleSave}
-                >
+                <button type="submit" className={`btn btn-success`}>
                   Save
                 </button>
               )}

@@ -23,6 +23,10 @@ const Dashboard = ({
   clearTask,
 }) => {
   const [isClicked, setIsClicked] = useState(false);
+  const setCred = () => {
+    window.localStorage.setItem("token", auth.results.token);
+    window.localStorage.setItem("company_id", auth.results.company_id);
+  };
   const childToParent = (childData) => {
     setIsClicked(childData);
     clearField();
@@ -30,11 +34,7 @@ const Dashboard = ({
 
   useEffect(() => {
     getAccess();
-    //alert(auth.code);
-    if (auth.code === 200) {
-      localStorage.setItem("token", auth.results.token);
-      localStorage.setItem("company_id", auth.results.company_id);
-    }
+
     getAllTask();
   }, []);
 
@@ -43,6 +43,9 @@ const Dashboard = ({
       <Top childToParent={childToParent} isClicked={isClicked} />
 
       {isClicked || isUpdate ? <Bottom /> : <Task />}
+      {auth.code === 200 ? setCred() : null}
+
+      {localStorage.token ? setAuthToken(localStorage.token) : null}
     </div>
   );
 };

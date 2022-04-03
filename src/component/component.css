@@ -15,9 +15,14 @@
   text-align: center;
 }
 
+.plus:hover {
+  color: blue;
+}
+
 .bottom {
   background-color: #e2fcfc;
   height: 90%;
+  transition: all 2s;
 }
 
 .title {
@@ -43,15 +48,15 @@
   width: 20px;
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 570px) {
   .dashboard {
     width: 310px;
     height: 535px;
   }
   .btn {
     margin: 2px;
-    width: 92px;
+    width: 66px;
     padding: -10px;
-    margin-left: -42px;
+    margin-left: -10px;
   }
 }

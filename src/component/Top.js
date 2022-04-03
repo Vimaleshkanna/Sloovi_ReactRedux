@@ -5,7 +5,7 @@ import "./component.css";
 import { connect } from "react-redux";
 const Top = ({ childToParent, isClicked, taskNumber }) => {
   return (
-    <nav className="navbar navbar-light bg-light">
+    <nav className="navbar" style={{ backgroundColor: "#fcfc9f" }}>
       <section>Tasks {taskNumber}</section>
       <div className="plus">
         <FontAwesomeIcon

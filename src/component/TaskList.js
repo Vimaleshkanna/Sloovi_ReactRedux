@@ -7,12 +7,8 @@ import { connect } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEdit } from "@fortawesome/free-solid-svg-icons";
 const TaskList = ({ task, taskNumber, updateTask, getTask }) => {
-  //const [edit, setEdit] = useEffect(false);
-
   const handleEdit = (e) => {
     e.preventDefault();
-    // setEdit(!edit);
-    //localStorage.setItem("taskId", task.id);
     getTask(task.id);
   };
   return (
@@ -23,17 +19,11 @@ const TaskList = ({ task, taskNumber, updateTask, getTask }) => {
           style={{
             display: "flex",
             color: "forestgreen",
-            backgroundColor: "antiquewhite",
+            backgroundColor: "white",
           }}
         >
           <h5>{task.task_msg}</h5>
 
-          {/* <input
-            type="button"
-            value="Edit"
-            style={{ marginLeft: "auto",cursor:"pointer" }}
-            onClick={handleEdit}
-          /> */}
           <div style={{ marginLeft: "auto" }}>
             <FontAwesomeIcon
               icon={faEdit}
