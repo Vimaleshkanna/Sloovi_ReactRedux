@@ -12,7 +12,7 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBarsProgress } from "@fortawesome/free-solid-svg-icons";
 import setAuthToken from "../utils/setAuthToken";
-
+import swal from "sweetalert";
 const Bottom = ({
   addTask,
   task,
@@ -56,7 +56,10 @@ const Bottom = ({
     setTN(tN + 1);
     addTask(taskDetails, tN);
 
-    alert("Task Added Successfully");
+    swal(
+      "Task Added Successfully !!",
+      "Please click Plus Icon to see all Tasks"
+    );
   };
   const handleCancel = (e) => {
     e.preventDefault();
